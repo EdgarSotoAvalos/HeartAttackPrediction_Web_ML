@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Prediction</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Heart Disease Prediction</h1>
+    <div id="info">
+      <p>This page utilizes a trained Machine Learning model to predict the risk of heart diseases.</p>
+      <p>To train the model, we have used a diverse and comprehensive dataset. If you wish to learn more details about the dataset used, you can find it at the following link: <a href="https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset" target="_blank">Heart Attack Analysis & Prediction Dataset</a>.</p>
+      <p style="color:rgb(206, 27, 27)">It is important to remember that, although the model is accurate, it does not replace the diagnosis and advice of a qualified medical professional. If you have concerns about your cardiac health, we strongly recommend seeking the advice of a physician.</p>
+    </div>
+    <div class="login">
+      <form action="/predict" method="post">
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="text" id="age" name="age" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="sex">Sex (1 = male; 0 = female):</label>
+          <input type="text" id="sex" name="sex" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="cp">Chest Pain Type:</label>
+          <input type="text" id="cp" name="cp" required="required" />
+          
+        </div>
+        <div class="form-group">
+          <label for="trtbps">Resting Blood Pressure (in mm Hg):</label>
+          <input type="text" id="trtbps" name="trtbps" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="chol">Cholesterol (in mg/dl fetched via BMI sensor):</label>
+          <input type="text" id="chol" name="chol" required="required" />
+          
+        </div>
+        <div class="form-group">
+          <label for="fbs">Fasting Blood Sugar (1 = true; 0 = false):</label>
+          <input type="text" id="fbs" name="fbs" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="rest_ecg">Resting Electrocardiographic Results:</label>
+          <input type="text" id="rest_ecg" name="rest_ecg" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="thalach">Maximum Heart Rate Achieved:</label>
+          <input type="text" id="thalach" name="thalach" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="exang">Exercise Induced Angina (1 = yes; 0 = no):</label>
+          <input type="text" id="exang" name="exang" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="oldpeak">Previous peak:</label>
+          <input type="text" name="oldpeak"  required="required">
+        </div>
+        <div class="form-group">
+          <label for="slp">Slope:</label>
+          <input type="text" name="slp" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="ca">Number of Major Vessels (0-3):</label>
+          <input type="text" id="ca" name="ca" required="required" />
+        </div>
+        <div class="form-group">
+          <label for="thaal">Thal rate:</label>
+          <input type="text" name="thall"  required="required" /><p></p>
+        </div>
+          <button type="submit" class="btn btn-primary">Predict Heart Attack Risk</button>
+      </form>
+      <h4>{{ prediction_text }}</h4>
+      <h4>0 = Less Chance of Heart Attack | 1 = More Chance of Heart Attack</h4>
+    </div>
+  </div>
+</body>
+</html>
